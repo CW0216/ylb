@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+<form action="/admin/login" method="post">
+    <div>用户名：<input type="text" name="username"  id="username"/></div><br>
+    <div>密  码：<input type="password" name="password" id="password"/></div><br>
+    <div>
+        用户：<input type="radio" name="userType"  value="user" title="用户" checked="">&nbsp;&nbsp;&nbsp;&nbsp;
+        管理员：<input type="radio" name="userType" value="admin" title="管理员">
+    </div>
+
+    <div><input type="submit" value="登录"></div>
+</form>
+</body>
+</html>

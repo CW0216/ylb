@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css">
+	</head>
+	<body>
+		
+		<form class="layui-form">
+			    <input type="hidden" id="id"  name="id"/>
+			    <input type="hidden" id="sales" name="sales"/>
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">药品名称</label>
+		    <div class="layui-input-block">
+		      <input type="text" name="m_name" id="m_name" placeholder="请输入药品名称" lay-verify="required" class="layui-input">
+		    </div>
+		  </div>
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">价格</label>
+		    <div class="layui-input-block">
+		      <input type="text" name="price" id="price" placeholder="请输入价格" lay-verify="required" class="layui-input">
+		    </div>
+		  </div>
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">生产公司</label>
+		    <div class="layui-input-block">
+		      <input type="text" name="company" id="company" placeholder="请输入生产公司" lay-verify="required" class="layui-input">
+		    </div>
+		  </div>
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">药品类型</label>
+		    <div class="layui-input-block">
+		      <select name="m_type" lay-verify="required" id="m_type">
+		              <option value=""></option>
+		              <option value="1">家庭常备</option>
+		              <option value="2">感冒用药</option>
+		              <option value="3">清热解毒</option>
+		            </select>
+		    </div>
+		  </div>
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">药品库存</label>
+		    <div class="layui-input-block">
+		      <input type="text" name="stock" id="stock" placeholder="请输入药品库存" lay-verify="required" class="layui-input">
+		    </div>
+		  </div>
+		  <div class="layui-form-item">
+		    <div class="layui-input-block">
+		      <button class="layui-btn" lay-submit lay-filter="updateMedicine">修改药品信息</button>
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    </div>
+		  </div>
+		</form>
+		 
+		<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//Demo
+			layui.use(['form','layer'],function(){
+			  var form = layui.form;
+			  var $=layui.jquery;
+			  var layer=layui.layer;
+			  //监听提交
+			  form.on('submit(updateMedicine)', function(data){
+				axios.post("http://localhost:8090/medicine/update",data.field
+				).then(function(res){
+					console.log(res.data.code);
+					var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+					parent.layer.close(index); //再执行关闭     
+				}).catch(function(err){
+					//请求失败该方法会回调
+					console.log(err)
+				});
+			    return false;
+			  });
+			});
+		</script>
+	</body>
+</html>

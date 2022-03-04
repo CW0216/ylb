@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>首页</title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css">
+	</head>
+	<body>
+		<div class="layui-container">
+			<div class="layui-row">
+				<div class="layui-col-md12" style="margin-top:100px">
+					<table id="u_list" lay-filter="u_list"></table>
+				</div>
+
+			</div>
+		</div>
+		
+		<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+		layui.use('table', function(){
+		  var table = layui.table;
+		  var $=layui.jquery;
+		  var layer=layui.layer;
+		  
+		  table.render({
+		    elem: '#u_list'
+		    ,url: 'http://localhost:8090/user/findAll' //数据接口
+			,method: 'get'
+			,skin:"line"
+			,toolbar: true
+		    ,page: true //开启分页
+		    ,cols: [[ //表头
+		      {field: 'id', title: 'ID',  sort: true,width:"10%"}
+		      ,{field: 'username', title: '用户名称',width:"25%"}
+		      ,{field: 'nickname', title: '昵称',  sort: true,width:"25%"}
+		      ,{field: 'telephone', title: '手机号码', sort: true,width:"30%"} 
+		      
+			  ,{field:'操作',title:'操作',width:"10.2%",align:"center",unresize:"false",templet:function(){
+			  	var str ="<button type=\"button\" class=\"layui-btn layui-btn-sm\" lay-event='del'><i class=\"layui-icon layui-icon-delete layui-font-15\"></i></button>";
+			  	return str;
+			  }}
+		    ]]
+		  });
+		  table.on('tool(m_list)',function(obj){
+		  	if(obj.event=="del"){
+		  		layer.confirm("是否注销该用户？",{icon:3,title:'提示'},function(index){
+					axios.post("http://localhost:8090/user/deleteById",{id:obj.data.id}
+					).then(function(res){
+						layer.msg("注销成功");
+						obj.del();
+						layer.close(index);
+					}).catch(function(err){
+						//请求失败该方法会回调
+						console.log(err)
+					});
+		  		});
+		  	}
+					  });
+		});
+		</script>
+	</body>
+</html>

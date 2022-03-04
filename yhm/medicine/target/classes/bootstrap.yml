@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: medicine
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://localhost:8771
+      fail-fast: true

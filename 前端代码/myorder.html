@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>myorder</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="fontawesome/css/all.min.css">
+		<link rel="stylesheet" href="css/templatemo-style.css">
+		<link rel="stylesheet" href="./layui/css/layui.css">
+		<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg">
+		    <div class="container-fluid">
+				<img src="img/logo.png" style="border-radius:50%; "/>&nbsp;&nbsp;&nbsp;
+		        <a class="navbar-brand" href="#">
+		            <!-- <i class="fas fa-film mr-2"></i> -->
+		            自助售药系统
+		        </a>
+		        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		            <i class="fas fa-bars"></i>
+		        </button>
+		        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a id="index" class="nav-link nav-link-2">首页</a>
+							</li>
+							<li class="nav-item">
+								<a id="mycart" class="nav-link nav-link-3">我的购物车</a>
+							</li>
+							<li class="nav-item">
+								<a id="myorder" class="nav-link nav-link-3 active">我的订单</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link nav-link-3" href="login.html">退出</a>
+							</li>
+		        </ul>
+		        </div>
+		    </div>
+		</nav>
+		
+		<div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="img/hero.jpg">
+		    <form class="d-flex tm-search-form">
+		        <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
+		        <button class="btn btn-outline-success tm-search-btn" type="submit">
+		            <i class="fas fa-search"></i>
+		        </button>
+		    </form>
+		</div>
+		
+		<div class="container-fluid tm-container-content tm-mt-60" style="background-color: white;">
+			    <div class="row mb-4">
+					<br><br><br>
+			        <h2 class="col-6 tm-text-primary">
+			            我的订单
+			        </h2>
+					<br><br><br>
+					<!-- <div class="row tm-mb-90 tm-gallery">
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5" id="medicine">
+							<figure style="width: 350px;height: 125px;">
+								               
+							</figure>
+					    </div> -->
+			    </div>
+				
+			<table id="demo" lay-filter="demo"></table>
+			
+		</div>
+		
+		
+		<footer class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer">
+			<div class="container-fluid tm-container-small">
+				<div class="row">
+					<div class="col-lg-6 col-md-12 col-12 px-5 mb-5">
+						<h3 class="tm-text-primary mb-4 tm-footer-title">有关我们</h3>
+						<p>伊河新村项目组</p>
+						<a>随时随地享受优质购药资源，健康生活从此刻开始。</a>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
+						<h3 class="tm-text-primary mb-4 tm-footer-title">Our Links</h3>
+						<ul class="tm-footer-links pl-0">
+							<li><a href="#">Advertise</a></li>
+							<li><a href="#">Support</a></li>
+							<li><a href="#">Our Company</a></li>
+							<li><a href="#">Contact</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
+						<ul class="tm-social-links d-flex justify-content-end pl-0 mb-5">
+							<li class="mb-2"><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
+							<li class="mb-2"><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+							<li class="mb-2"><a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+							</li>
+							<li class="mb-2"><a href="https://pinterest.com"><i class="fab fa-pinterest"></i></a>
+							</li>
+						</ul>
+						<a href="#" class="tm-text-gray text-right d-block mb-2">Terms of Use</a>
+						<a href="#" class="tm-text-gray text-right d-block">Privacy Policy</a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-8 col-md-7 col-12 px-5 mb-3">
+						Copyright 2020 Catalog-Z Company. All rights reserved.
+					</div>
+					<div class="col-lg-4 col-md-5 col-12 px-5 text-right">
+						Designed by <a href="https://templatemo.com" class="tm-text-gray" rel="sponsored"
+							target="_parent">YHMedicine</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+		
+		<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/plugins.js"></script>
+		<script>
+			$(window).on("load", function() {
+				$('body').addClass('loaded');
+			});
+			window.uid=-1;
+			var url=window.location.search;
+			if (url.indexOf("?") != -1) {  //判断是否有参数  
+			        var str = url.substr(1); //从第一个字符开始 因为第0个是?号 获取所有除问号的所有符串  
+			        uid = str.split("=")[1]; 
+			};
+			$('#myorder').click(function(){
+				window.location.href='myorder.html?uid='+uid;
+			});
+			$('#mycart').click(function(){
+				window.location.href='mycart.html?uid='+uid;
+			});
+			$('#index').click(function(){
+				window.location.href='index.html?uid='+uid;
+			})
+			console.log(uid);
+			layui.use('table', function(){
+			  var table = layui.table;
+			  var $=layui.jquery;
+			  var layer=layui.layer;
+			  table.render({
+			    elem: '#demo'
+			    ,url: 'http://localhost:8090/cart/findAllById' //数据接口
+				,where:{'uid':window.uid}
+				,method: 'post'
+				,skin:"line"
+			    ,page: true //开启分页
+			    ,cols: [[ //表头
+			      {field: 'id', title: '订单ID',  sort: true,width:"8%"}
+			      ,{field: 'date', title: '时间',  sort: true,width:"13%",templet:function(d){
+					  return layui.util.toDateString(d.date, 'yyyy-MM-dd');
+				  }}
+			      ,{field: 'm_name', title: '药品名称',width:"15%",templet:function(d){
+					  return d.medicine.m_name;
+				  }}
+			      ,{field: 'm_type', title: '药品种类', sort: true,width:"12%",templet:function(d){
+			       if(d.medicine.m_type==1){
+					   return "家庭常备";
+				   }else if(d.medicine.m_type==2){
+					   return "感冒用药";
+				   }else if(d.medicine.m_type==3){
+					   return "清热解毒";
+					}
+			     }}
+				 ,{field: 'price', title: '价格', sort: true,width:"14%",templet:function(d){
+					  return d.medicine.price;
+				  }}
+				 ,{field: 'company', title: '药品公司',width:"30%",templet:function(d){
+					  return d.medicine.company;
+				  }}
+				  ,{field: 'state', title: '订单状态', sort: true,width:"8.3%",templet:function(d){
+				    if(d.state==1){
+				  				   return "已付款";
+				    }else if(d.state==2){
+				  				   return "待取货";
+				    }else if(d.state==3){
+				  				   return "已完成";
+				  	}
+				  }}
+			    ]]
+			  });
+			  table.on('tool(demo)',function(obj){
+				  // 待完善
+			  	if(obj.event=="update2"){
+			  		layer.confirm("是否出柜？",{icon:3,title:'提示'},function(index){
+						axios.post("http://localhost:8090/cart/updateState",{id:obj.data.id,state:"2"}
+						).then(function(res){
+							layer.msg("出柜成功");
+							table.reload("demo");
+							layer.close(index);
+						}).catch(function(err){
+							//请求失败该方法会回调
+							console.log(err)
+						});
+			  		});
+			  	}else if(obj.event=="update3"){
+			  		layer.confirm("是否出柜？",{icon:3,title:'提示'},function(index){
+			  			axios.post("http://localhost:8090/cart/updateState",{id:obj.data.id,state:"3"}
+			  			).then(function(res){
+			  				layer.msg("订单已完成");
+							table.reload("demo");
+			  				layer.close(index);
+			  			}).catch(function(err){
+			  				//请求失败该方法会回调
+			  				console.log(err)
+			  			});
+			  		});
+			  	}
+			  });
+			});
+			</script>
+		</script>
+		
+	</body>
+</html>

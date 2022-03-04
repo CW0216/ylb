@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--没有按下时候的样子，drawable可以是一个章图片，也可以是String值-->
+    <!-- 正常状态 -->
+    <item android:drawable="@drawable/homepage_selector" android:state_selected="true"/>
+    <!-- 点击状态 -->
+    <item android:drawable="@drawable/homepage_normal" android:state_selected="false"/>
+
+</selector>

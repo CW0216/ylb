@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>首页</title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css">
+	</head>
+	<body>
+		<div class="layui-container">
+			<div class="layui-row">
+				<div class="layui-col-md12" style="margin-top:100px" >
+					<table lay-even id="m_list" lay-filter="m_list" lay-skin="nob"></table>
+				</div>
+
+			</div>
+		</div>
+		
+		<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+		layui.use('table', function(){
+		  var table = layui.table;
+		  var $=layui.jquery;
+		  var layer=layui.layer;
+		  table.render({
+		    elem: '#m_list'
+		    ,url: 'http://localhost:8090/medicine/findByType' //数据接口
+			,where:{'m_type':1}
+			,method: 'get'
+			,limit: 10
+			,skin:"line"
+			,toolbar: true
+		    ,page: true //开启分页
+		    ,cols: [[ //表头
+		      {field: 'id', title: 'ID',  sort: true,width:"10%"}
+		      ,{field: 'm_name', title: '药品名称',width:"18%"}
+		      ,{field: 'price', title: '价格',  sort: true,width:"14%"}
+		      ,{field: 'sales', title: '销量', sort: true,width:"14%"} 
+		      ,{field: 'company', title: '公司',width:"18%"}
+			 ,{field: 'stock', title: '库存',width:"12%"}
+			  ,{field:'操作',title:'操作',width:"14.3%",align:"ce nter",unresize:"false",templet:function(){
+			  	var str ="<button type=\"button\" class=\"layui-btn layui-btn-sm\" lay-event='addCart'>加入购物车</button>";
+			  	return str;
+			  }}
+		    ]]
+		  });
+		  table.on('tool(m_list)',function(obj){
+		  	if(obj.event=="addCart"){
+		  		layer.confirm("是否加入购物车？",{icon:3,title:'提示'},function(index){
+					axios.post("http://localhost:8090/cart/save",{mid:obj.data.id,m_name:obj.data.m_name,price:obj.data.price,sales:obj.data.sales,company:obj.data.company,m_type:obj.data.m_type,stock:obj.data.stock,uid:"3"}//添加到购物车接口（未写）
+					).then(function(res){
+						layer.msg("加入购物车成功");
+						table.reload("c_list");
+						layer.close(index);
+					}).catch(function(err){
+						//请求失败该方法会回调
+						console.log(err)
+					});
+		  		});
+		  	}
+		  });
+		});
+		</script>
+	</body>
+</html>

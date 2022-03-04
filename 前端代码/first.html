@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>首页</title>
+		<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.container {
+				height: 70px;
+				width: 800px;
+				margin: 100px auto 0 auto;
+			}
+
+			.parent {
+				position: relative;
+			}
+
+			.search {
+				width: 300px;
+				height: 40px;
+				border-radius: 18px;
+				outline: none;
+				border: 1px solid #ccc;
+				padding-left: 20px;
+				position: absolute;
+			}
+
+			.btn {
+				height: 35px;
+				width: 35px;
+				position: absolute;
+				background: url("images/topbar.png") no-repeat -2px -99px;
+				top: 6px;
+				left: 285px;
+				border: none;
+				outline: none;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- <ul class="layui-nav layui-layout-left" lay-filter="">
+			<li class="layui-nav-item"><img src="img/logo.png"/></li>
+		  <li class="layui-nav-item"><a style="font-size: x-large;">自助售药系统</a></li>
+		  <li class="layui-nav-item">
+			  
+		  </li>&nbsp;&nbsp;
+		  <li class="layui-nav-item layui-this"><a href="">首页</a></li>
+		</ul>
+		<ul class="layui-nav layui-layout-right" lay-filter="">
+		  <li class="layui-nav-item ">
+		    <a href="login.html">登录</a>
+		  </li>
+		  <li class="layui-nav-item"><a href="register.html">注册</a></li>
+		</ul> -->
+
+		<div class="layui-header">
+			<ul class="layui-nav" lay-filter="">
+				<li class="layui-nav-item ">
+					<img src="img/logo.png" />
+				</li>
+				<li class="layui-nav-item ">
+					<a style="font-size: x-large;">自助售药系统</a>
+				</li>
+				<li class="layui-nav-item ">
+					<a href="first.html">首页</a>
+				</li>
+				<li class="layui-nav-item">
+					<a href="#aboutus">关于我们</a>
+				</li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item"><a></a></li>
+				<li class="layui-nav-item layui-hide layui-show-md-inline-block">
+					<a href="login.html">
+						登录
+					</a>
+				</li>
+				<li class="layui-nav-item layui-hide layui-show-md-inline-block">
+					<a href="register.html">
+						注册
+					</a>
+				</li>
+
+			</ul>
+		</div>
+		
+		<!-- <div style="height: 70px;width: 100%;background-color: #F8F8F8;">qq</div> -->
+
+		<div class="layui-carousel" id="test1">
+			<div carousel-item>
+				<div align="center"><img style="height: 100%;width: 80%;" src="img/开业.png"/></div>
+				<div align="center"><img style="height: 100%;width: 80%;" src="img/药品知识科普.png"/></div>
+				<div align="center"><img style="height: 100%;width: 80%;" src="img/暖心教师礼.png"/></div>
+				<div align="center"><img style="height: 100%;width: 80%;" src="img/急救药品清单.png"/></div>
+				<div ></div>
+			</div>
+		</div>
+
+		<div id="aboutus" align="center">
+			<img style="width: 100%;" src="img/关于我们.png" />
+		</div>
+
+		<div style="height: 100px;background-color:#393d49 ;width: 100%;">
+			<div style="height: 50px;"></div>
+			<h6 align="center" style="color: #555555;">@伊河新村项目组</h6>
+			<h6 align="center" style="color: #555555;">联系我们:YHXCProjectTeam@qq.com</h6>
+		</div>
+		
+		
+
+		<script src="layui/layui.js" type="application/javascript" charset="UTF-8"></script>
+		<script>
+			//注意：导航 依赖 element 模块，否则无法进行功能性操作
+			layui.use(['element', 'carousel'], function() {
+				var element = layui.element;
+				var carousel = layui.carousel;
+				//建造实例
+				carousel.render({
+					elem: '#test1',
+					width: '100%', //设置容器宽度
+					height: '600px',
+					arrow: 'always' ,//始终显示箭头
+					autoplay: true,
+					interval: 2000
+					//,anim: 'updown' //切换动画方式
+				});
+			});
+		</script>
+	</body>
+</html>

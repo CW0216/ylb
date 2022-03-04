@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>首页</title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css">
+	</head>
+	<body>
+		<div class="layui-container">
+			<div class="layui-row">
+				<div class="layui-col-md12" style="margin-top:100px">
+					<table id="c_list" lay-filter="c_list"></table>
+				</div>
+
+			</div>
+		</div>
+		
+		<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+		window.uid=-1;
+		var url=window.location.search;
+		if (url.indexOf("?") != -1) {  //判断是否有参数  
+		        var str = url.substr(1); //从第一个字符开始 因为第0个是?号 获取所有除问号的所有符串  
+		        uid = str.split("=")[1]; 
+		    }
+		layui.use('table', function(){
+		  var table = layui.table;
+		  var $=layui.jquery;
+		  var layer=layui.layer;
+		  table.render({
+		    elem: '#c_list'
+		    ,url: 'http://localhost:8090/cart/findAllById' //数据接口
+			,where:{'uid':window.uid}
+			,method: 'get'
+			,skin:"line"
+		    ,page: true //开启分页
+		    ,cols: [[ //表头
+		      {field: 'id', title: '订单ID',  sort: true,width:"10%"}
+		      ,{field: 'uid', title: '用户ID',width:"10%",sort: true,templet:function(d){
+				  return d.user.id;
+			  }}
+		      ,{field: 'date', title: '时间',  sort: true,width:"14%",templet:function(d){
+				  return layui.util.toDateString(d.date, 'yyyy-MM-dd');
+			  }}
+		      ,{field: 'm_name', title: '药品名称',width:"15%",templet:function(d){
+				  return d.medicine.m_name;
+			  }}
+		      ,{field: 'm_type', title: '药品种类', sort: true,width:"12%",templet:function(d){
+               if(d.medicine.m_type==1){
+				   return "家庭常备";
+			   }else if(d.medicine.m_type==2){
+				   return "感冒用药";
+			   }else if(d.medicine.m_type==3){
+				   return "清热解毒";
+				}
+             }}
+			 ,{field: 'price', title: '价格', sort: true,width:"14%",templet:function(d){
+				  return d.medicine.price;
+			  }}
+			 ,{field: 'company', title: '药品公司',width:"15%",templet:function(d){
+				  return d.medicine.company;
+			  }}
+			  ,{field: 'state', title: '订单状态', sort: true,width:"10.4%",templet:function(d){
+			    if(d.state==1){
+			  				   return "已付款";
+			    }else if(d.state==2){
+			  				   return "待取货";
+			    }else if(d.state==3){
+			  				   return "已完成";
+			  	}
+			  }}
+		    ]]
+		  });
+		  table.on('tool(c_list)',function(obj){
+			  // 待完善
+		  	if(obj.event=="update2"){
+		  		layer.confirm("是否出柜？",{icon:3,title:'提示'},function(index){
+					axios.post("http://localhost:8090/cart/updateState",{id:obj.data.id,state:"2"}
+					).then(function(res){
+						layer.msg("出柜成功");
+						table.reload("c_list");
+						layer.close(index);
+					}).catch(function(err){
+						//请求失败该方法会回调
+						console.log(err)
+					});
+		  		});
+		  	}else if(obj.event=="update3"){
+		  		layer.confirm("是否出柜？",{icon:3,title:'提示'},function(index){
+		  			axios.post("http://localhost:8090/cart/updateState",{id:obj.data.id,state:"3"}
+		  			).then(function(res){
+		  				layer.msg("订单已完成");
+						table.reload("c_list");
+		  				layer.close(index);
+		  			}).catch(function(err){
+		  				//请求失败该方法会回调
+		  				console.log(err)
+		  			});
+		  		});
+		  	}
+		  });
+		});
+		</script>
+	</body>
+</html>

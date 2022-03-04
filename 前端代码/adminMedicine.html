@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>首页</title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css">
+	</head>
+	<body>
+		<div class="layui-container">
+			<div class="layui-row">
+				<div class="layui-col-md12" style="margin-top:100px">
+					<table id="m_list" lay-filter="m_list"></table>
+					<button id="add" type="button" class="layui-btn layui-btn-fluid">新增药品</button>
+				</div>
+
+			</div>
+		</div>
+		
+		<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+		layui.use(['table'], function(){
+		  var table = layui.table;
+		  var $=layui.jquery;
+		  var layer=layui.layer;
+		  var upload = layui.upload;
+		  $('#add').click(function(){
+		  	layer.open({
+		  		type:2,
+		  		title:"新增药品",
+		  		content:"addMedicine.html",
+		  		area:["500px",'500px'],
+		  		closeBtn:2,
+		  		end:function(){
+		  			table.reload("m_list");
+		  		},
+		  	});
+		  });
+		  table.render({
+		    elem: '#m_list'
+		    ,url: 'http://localhost:8090/medicine/findAll' //数据接口
+			,method: 'get'
+			,skin:"line"
+			,toolbar: true
+		    ,page: true //开启分页
+		    ,cols: [[ //表头
+		      {field: 'id', title: 'ID',  sort: true,width:"10%"}
+		      ,{field: 'm_name', title: '药品名称',width:"19%"}
+		      ,{field: 'price', title: '价格',  sort: true,width:"10%"}
+		      ,{field: 'sales', title: '销量', sort: true,width:"10%"} 
+		      ,{field: 'company', title: '公司',width:"14%"}
+		      ,{field: 'm_type', title: '药品种类', sort: true,width:"12%",templet:function(d){
+               if(d.m_type==1){
+				   return "家庭常备";
+			   }else if(d.m_type==2){
+				   return "感冒用药";
+			   }else if(d.m_type==3){
+				   return "清热解毒";
+				}
+             }}
+			 ,{field: 'stock', title: '库存',width:"10%"}
+			  ,{field:'操作',title:'操作',width:"15.4%",align:"center",unresize:"false",templet:function(){
+			  	var str ="<button type=\"button\" class=\"layui-btn layui-btn-sm\" lay-event='del'><i class=\"layui-icon layui-icon-delete layui-font-15\"></i></button>";
+			  	str =str +"<button type=\"button\" class=\"layui-btn  layui-btn-warm layui-btn-sm\" lay-event='update'><i class=\"layui-icon layui-icon-edit layui-font-15\"></i></button>";
+			  	return str;
+			  }}
+		    ]]
+		  });
+		  table.on('tool(m_list)',function(obj){
+		  	if(obj.event=="del"){
+		  		layer.confirm("是否删除？",{icon:3,title:'提示'},function(index){
+					axios.post("http://localhost:8090/medicine/deleteById",{id:obj.data.id}
+					).then(function(res){
+						layer.msg("删除成功");
+						obj.del();
+						layer.close(index);
+					}).catch(function(err){
+						//请求失败该方法会回调
+						console.log(err)
+					});
+		  		});
+		  	}else if(obj.event=="update"){
+		  		layer.open({
+		  			type:2,
+		  			title:"修改药品",
+		  			content:"updateMedicine.html",
+		  			area:["500px",'500px'],
+		  			closeBtn:2,
+		  			end:function(){
+		  				table.reload("m_list");
+		  			},
+		  			success:function(layero,index){
+		  				var body=layer.getChildFrame('body',index);
+		  				body.find("#m_name").val(obj.data.m_name);
+		  				body.find("#price").val(obj.data.price);
+						body.find("#company").val(obj.data.company);
+						body.find("#m_type").val(obj.data.m_type);
+						body.find("#id").val(obj.data.id);
+						body.find("#sales").val(obj.data.sales);
+						body.find("#stock").val(obj.data.stock);
+		  			},
+		  		});
+		  	}
+		  });
+		});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>注册</title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css">
+	</head>
+	<body background="img/login&register.png" style=" background-repeat:no-repeat ;background-size:100% 100%;background-attachment: fixed;">
+		<div class="layui-container">
+			<div class="layui-row">
+				<div class="layui-col-md6 layui-col-md-offset7" style="margin-top:200px">
+					<form class="layui-form" id="fm">
+						<br>
+						<div class="layui-form-item">
+							<label class="layui-form-label">账号：</label>
+							<div class="layui-input-inline">
+								<input type="text" name="username" required lay-verify="required"
+									placeholder="请输入账号" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">密码：</label>
+							<div class="layui-input-inline">
+								<input  type="password" name="password" id="password" required lay-verify="required|password1"
+									placeholder="请输入密码" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">确定密码：</label>
+							<div class="layui-input-inline">
+								<input  type="password" name="password2" required lay-verify="required|password2"
+									placeholder="请再次确定密码" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">手机号：</label>
+							<div class="layui-input-inline">
+								<input  type="text" name="telephone" required lay-verify="required"
+									placeholder="请输入手机号" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						<div class="layui-form-item">
+							<label class="layui-form-label">昵称：</label>
+							<div class="layui-input-inline">
+								<input  type="text" name="nickname" required lay-verify="required"
+									placeholder="请输入昵称" autocomplete="off" class="layui-input">
+							</div>
+						</div>
+						
+						<div class="layui-form-item">
+							<div class="layui-input-block">
+								<button  class="layui-btn" lay-submit lay-filter="registers"style="width: 190px;">注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;册</button>&nbsp;&nbsp;&nbsp;
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</div>
+
+		</div>
+		<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+
+		<script >
+		layui.use(['form'], function() {
+			var form=layui.form;
+			var $=layui.jquery;
+			var layer=layui.layer;
+			form.on('submit(registers)', function(data){
+							axios.post("http://localhost:8090/user/save",{
+								username:data.field.username,
+								password:data.field.password,
+								telephone:data.field.telephone,
+								nickname:data.field.nickname,
+							}).then(function(res){
+								//请求成功该方法会回调
+								layer.msg("注册成功");
+								window.location.href='login.html'
+							}).catch(function(err){
+								//请求失败该方法会回调
+								console.log(err)
+							});
+			  return false;
+			},
+			);
+			
+			form.verify({
+			  password1: function(value, item){ //value：表单的值、item：表单的DOM对象
+			      if(!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)){
+			        return '用户名不能有特殊字符';
+			      }
+			      if(/(^\_)|(\__)|(\_+$)/.test(value)){
+			        return '用户名首尾不能出现下划线\'_\'';
+			      }
+			      if(/^\d+\d+\d$/.test(value)){
+			        return '用户名不能全为数字';
+			      }
+			    },
+			  password2:function(value,item){
+				  if(value!=$("#password").val()){
+					  return '两次输入的密码不相同';
+				}
+			  }			  
+			});      
+		});
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/admin/admin.iml" filepath="$PROJECT_DIR$/admin/admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cart/cart.iml" filepath="$PROJECT_DIR$/cart/cart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client/client.iml" filepath="$PROJECT_DIR$/client/client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/configserver/configserver.iml" filepath="$PROJECT_DIR$/configserver/configserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eurekaserver/eurekaserver.iml" filepath="$PROJECT_DIR$/eurekaserver/eurekaserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eurekaserver02/eurekaserver02.iml" filepath="$PROJECT_DIR$/eurekaserver02/eurekaserver02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eurekaserver03/eurekaserver03.iml" filepath="$PROJECT_DIR$/eurekaserver03/eurekaserver03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/medicine/medicine.iml" filepath="$PROJECT_DIR$/medicine/medicine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user/user.iml" filepath="$PROJECT_DIR$/user/user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yhm.iml" filepath="$PROJECT_DIR$/yhm.iml" />
+    </modules>
+  </component>
+</project>

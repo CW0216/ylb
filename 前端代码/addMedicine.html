@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css">
+	</head>
+	<body>
+		
+		<form class="layui-form" lay-filter="add">
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">药品名称</label>
+		    <div class="layui-input-block">
+		      <input type="text" name="m_name"  placeholder="请输入药品名称" lay-verify="required" class="layui-input">
+		    </div>
+		  </div>
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">价格</label>
+		    <div class="layui-input-block">
+		      <input type="text" name="price" placeholder="请输入价格" lay-verify="required" class="layui-input">
+		    </div>
+		  </div>
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">生产公司</label>
+		    <div class="layui-input-block">
+		      <input type="text" name="company" placeholder="请输入生产公司" lay-verify="required" class="layui-input">
+		    </div>
+		  </div>
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">药品类型</label>
+		    <div class="layui-input-block">
+		      <select name="m_type" lay-verify="required" >
+		              <option value=""></option>
+		              <option value="1">家庭常备</option>
+		              <option value="2">感冒用药</option>
+		              <option value="3">清热解毒</option>
+		            </select>
+		    </div>
+		  </div>
+		  <div class="layui-form-item">
+		    <label class="layui-form-label">药品库存</label>
+		    <div class="layui-input-block">
+		      <input type="text" name="stock" placeholder="请输入药品库存" lay-verify="required" class="layui-input">
+		    </div>
+		  </div>
+		  <div class="layui-form-item layui-form-text">
+		      <label class="layui-form-label">简介</label>
+		      <div class="layui-input-block">
+		        <textarea name="detail" placeholder="请药品简介内容" class="layui-textarea" lay-verify="required"></textarea>
+		      </div>
+		    </div>
+		  <div class="layui-form-item">
+		    <div class="layui-input-block">
+		      <button type="button" class="layui-btn" id="img" name="img">
+		        <i class="layui-icon">&#xe67c;</i>上传图片
+		      </button>
+		    </div>
+		  </div>
+		  <div class="layui-form-item">
+		    <div class="layui-input-block">
+		      <button class="layui-btn" lay-submit lay-filter="addMedicine">新增药品</button>
+		      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+		    </div>
+		  </div>
+		</form>
+		 
+		<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		window.src;
+			//Demo
+			layui.use(['form','layer','upload'],function(){
+			  var form = layui.form;
+			  var $=layui.jquery;
+			  var layer=layui.layer;
+			  var upload = layui.upload;
+			  var uploadInst = upload.render({
+			      elem: '#img' //绑定元素
+			      ,url: 'http://localhost:8090/medicine/saveImg' //上传接口
+			  		,accept:'images'
+			  		,acceptMime: 'image/*'
+					,drag:true
+					,before: function(obj){ 
+					    layer.load(); //上传loading
+					  }
+			      ,done: function(res,){
+			        //上传完毕回调
+					// console.log(res.msg);
+					src=res.msg;
+					layer.closeAll('loading');
+			      }
+			      ,error: function(){
+					  layer.closeAll('loading');
+			      },
+			    });
+			  //监听提交
+			  form.on('submit(addMedicine)', function(data){
+				  data.field.file=src
+				axios.post("http://localhost:8090/medicine/save",data.field
+				).then(function(res){
+					console.log(res.data.code);
+					src=null
+					var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+					parent.layer.close(index); //再执行关闭     
+				}).catch(function(err){
+					src=null
+					//请求失败该方法会回调
+					console.log(err)
+				});
+			    return false;
+			  });
+			});
+		</script>
+	</body>
+</html>

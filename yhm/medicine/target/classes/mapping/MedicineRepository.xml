@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhm.repository.MedicineRepository">
+
+
+    <select id="findAll" resultType="Medicine">
+        select * from t_medicine limit #{param1},#{param2}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id) from t_medicine
+    </select>
+
+    <select id="countType" resultType="int" parameterType="int">
+        select count(id) from t_medicine where m_type = #{m_type}
+    </select>
+
+    <select id="findById" parameterType="long" resultType="Medicine">
+        select * from t_medicine where id = #{id}
+    </select>
+
+    <select id="findByType" parameterType="int" resultType="Medicine">
+        select * from t_medicine where m_type = #{param3} limit #{param1},#{param2}
+    </select>
+
+    <insert id="save" parameterType="Medicine">
+        insert into t_medicine(id,m_name,price,sales,company,m_type,stock,img) values(#{id},#{m_name},#{price},#{sales},#{company},#{m_type},#{stock},#{img})
+    </insert>
+
+    <update id="update" parameterType="Medicine">
+        update t_medicine set id=#{id},m_name=#{m_name},price=#{price},sales=#{sales},company=#{company},m_type=#{m_type},stock=#{stock} where id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="long">
+        delete from t_medicine where id = #{id}
+    </delete>
+
+</mapper>

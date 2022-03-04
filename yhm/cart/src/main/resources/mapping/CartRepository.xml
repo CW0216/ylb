@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yhm.repository.CartRepository">
+
+    <resultMap id="cartMap" type="Cart">
+        <id column="id" property="id"/>
+        <result column="date" property="date"/>
+        <result column="state" property="state"/>
+        <association property="user" select="com.yhm.repository.UserRepository.findById" column="uid"/>
+        <association property="medicine" select="com.yhm.repository.MedicineRepository.findById" column="mid"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="cartMap">
+        select id,mid,uid,date,state from t_cart where state!=0 limit #{param1},#{param2}
+    </select>
+
+    <select id="findAllById" resultMap="cartMap">
+        select id,mid,uid,date,state from t_cart where uid =#{param3} and  state!=0 limit #{param1},#{param2}
+    </select>
+
+    <select id="findAllByState" resultMap="cartMap">
+        select id,mid,uid,date,state from t_cart where uid =#{param3} and state=#{param4} limit #{param1},#{param2}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from t_cart where state!=0
+    </select>
+
+
+    <insert id="save" parameterType="Cart">
+        insert into t_cart(uid,mid,date,state) values(#{user.id},#{medicine.id},#{date},0)
+    </insert>
+
+    <delete id="deleteById" parameterType="long">
+        delete from t_cart where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="Cart">
+        update t_cart set uid=#{user.uid},mid=#{medicine.id},state=#{state} where id = #{id}
+    </update>
+
+    <update id="updateState">
+        update t_cart set state=#{param2} where id = #{param1}
+    </update>
+
+</mapper>

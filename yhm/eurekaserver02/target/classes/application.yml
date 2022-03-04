@@ -1,0 +1,8 @@
+server:
+  port: 8762
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8763/eureka/
+    register-with-eureka: false
+    fetch-registry: false

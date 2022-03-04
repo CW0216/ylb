@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="224a48ca-4ee5-40ab-87c5-8c0084ca6234" name="默认变更列表" comment="默认变更列表">
+      <change afterPath="$PROJECT_DIR$/../Android_yhm/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android_yhm/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android_yhm/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android_yhm/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android_yhm/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android_yhm/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< .mine
+      <change beforePath="$PROJECT_DIR$/client/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/com/yhm/tools/MedicineResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/com/yhm/tools/MedicineResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/adminNav.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/adminNav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/adminOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/adminOrder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/userMedicineType1.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/userMedicineType1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/userMedicineType2.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/userMedicineType2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/userMedicineType3.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/userMedicineType3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/userMyCart.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/userMyCart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/userNav.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/userNav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/userOrder.html" beforeDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/../前端代码/adminMedicine.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/adminMedicine.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/adminOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/adminOrder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/adminUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/adminUsers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/userMedicine.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/userMedicine.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/userMedicineType1.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/userMedicineType1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/userMedicineType2.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/userMedicineType2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/userMedicineType3.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/userMedicineType3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/userMyCart.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/userMyCart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/userNav.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/userNav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../前端代码/userOrder.html" beforeDir="false" afterPath="$PROJECT_DIR$/../前端代码/userOrder.html" afterDir="false" />
+
+
+
+>>>>>>> .theirs
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/eurekaserver03/pom.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/configserver/src/main/java/com/yhm/ConfigServerApplication.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/medicine/src/main/java/com/yhm/MedicineApplication.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/eurekaserver03/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/eurekaserver02/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/eurekaserver03/src/main/java/com/yhm/EurekaServerApplication_03.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectId" id="21JpYYCf2uXLnbXY1bbL0ecgpn6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="模块" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Desktop\yhm1.0\yihe-new-village-project-team\yhm\eurekaserver03\src\main\resources" />
+      <recent name="D:\Desktop\yhm1.0\yihe-new-village-project-team\yhm\eurekaserver02\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yhm" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.UserApplication">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+<<<<<<< .mine
+    <configuration name="AdminApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="admin" />
+=======
+    <configuration name="ClientApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="client" />
+>>>>>>> .theirs
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yhm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+<<<<<<< .mine
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yhm.AdminApplication" />
+=======
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yhm.ClientApplication" />
+>>>>>>> .theirs
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+<<<<<<< .mine
+    <configuration name="CartApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="cart" />
+=======
+    <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="configserver" />
+>>>>>>> .theirs
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yhm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+<<<<<<< .mine
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yhm.CartApplication" />
+=======
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yhm.ConfigServerApplication" />
+>>>>>>> .theirs
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+<<<<<<< .mine
+    <configuration name="ClientApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="client" />
+=======
+    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="eurekaserver" />
+>>>>>>> .theirs
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yhm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+<<<<<<< .mine
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yhm.ClientApplication" />
+=======
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yhm.EurekaServerApplication" />
+>>>>>>> .theirs
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="configserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yhm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yhm.ConfigServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="eurekaserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yhm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yhm.EurekaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.UserApplication" />
+        <item itemvalue="Spring Boot.ClientApplication" />
+<<<<<<< .mine
+        <item itemvalue="Spring Boot.AdminApplication" />
+        <item itemvalue="Spring Boot.ConfigServerApplication" />
+        <item itemvalue="Spring Boot.EurekaServerApplication" />
+        <item itemvalue="Spring Boot.CartApplication" />
+=======
+
+
+
+
+>>>>>>> .theirs
+        <item itemvalue="Spring Boot.EurekaServerApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="224a48ca-4ee5-40ab-87c5-8c0084ca6234" name="默认变更列表" comment="" />
+      <created>1637669095518</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1637669095518</updated>
+      <workItem from="1637669100380" duration="1274000" />
+      <workItem from="1637670397621" duration="2188000" />
+      <workItem from="1637730890956" duration="1217000" />
+<<<<<<< .mine
+      <workItem from="1637810478118" duration="1291000" />
+      <workItem from="1638252310483" duration="2416000" />
+      <workItem from="1638280032543" duration="2991000" />
+      <workItem from="1638856918682" duration="631000" />
+      <workItem from="1639469747461" duration="16000" />
+      <workItem from="1639827341133" duration="1217000" />
+      <workItem from="1639888357608" duration="646000" />
+      <workItem from="1639898155911" duration="900000" />
+=======
+      <workItem from="1639568138993" duration="1348000" />
+      <workItem from="1639828083740" duration="828000" />
+
+
+
+
+
+
+>>>>>>> .theirs
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
